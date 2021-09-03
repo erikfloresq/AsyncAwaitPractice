@@ -26,4 +26,14 @@ struct ViewModel {
         print("episodes \(episodes)")
         print("locations \(locations)")
     }
+
+    func getDataInParalallel() async throws {
+        let apiResponse = try await getData()
+        async let (character,_) = try await URLSession.shared.data(from: URL(string: apiResponse.characters)!, delegate: nil)
+        async let (locations,_) = try await URLSession.shared.data(from: URL(string: apiResponse.locations)!, delegate: nil)
+        async let (episodes,_) = try await URLSession.shared.data(from: URL(string: apiResponse.episodes)!, delegate: nil)
+
+        let result = try await [character, episodes ,locations]
+        print(result)
+    }
 }
