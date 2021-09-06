@@ -14,7 +14,19 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        getAllDataInParallel()
+        //getAllDataInParallel()
+        getInGroup()
+    }
+
+    func getInGroup() {
+        Task {
+            do {
+                let responseGroup = try await viewModel.getInGroup()
+                self.textView.text = "\(responseGroup)"
+            } catch {
+                print("")
+            }
+        }
     }
 
     func getAllDataInParallel() {

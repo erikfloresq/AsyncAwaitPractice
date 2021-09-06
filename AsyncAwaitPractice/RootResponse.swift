@@ -1,6 +1,6 @@
 //
-//  APIResponse.swift
-//  APIResponse
+//  RootResponse.swift
+//  RootResponse
 //
 //  Created by Erik Flores on 2/9/21.
 //

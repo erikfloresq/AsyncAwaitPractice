@@ -17,6 +17,11 @@ struct ViewModel {
         return dataResponse
     }
 
+    func getData() async throws -> RootResponse {
+        let rootResponse: RootResponse = try await getAPIData(from: "https://rickandmortyapi.com/api")
+        return rootResponse
+    }
+
     func getSequentialData() async throws {
         let rootResponse: RootResponse = try await getAPIData(from: "https://rickandmortyapi.com/api")
         let locations: ResponseAPI<Location> = try await getAPIData(from: rootResponse.locations)
@@ -40,8 +45,20 @@ struct ViewModel {
         }
     }
 
-    func getData() async throws -> RootResponse {
-        let rootResponse: RootResponse = try await getAPIData(from: "https://rickandmortyapi.com/api")
-        return rootResponse
+    /// this is for request that has the same result
+    func getInGroup() async throws -> [RootResponse] {
+        let groupRequest = ["https://rickandmortyapi.com/api", "https://rickandmortyapi.com/api", "https://rickandmortyapi.com/api"]
+        return await withTaskGroup(of: RootResponse.self, body: { group in
+            var rootResponses = [RootResponse]()
+            for request in groupRequest {
+                group.addTask {
+                    return try! await getAPIData(from: request)
+                }
+            }
+            for await rootResponse in group {
+                rootResponses.append(rootResponse)
+            }
+            return rootResponses
+        })
     }
 }

@@ -16,7 +16,7 @@
 		080BB76226E0E36500D518EB /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080BB76126E0E36500D518EB /* ViewModel.swift */; };
 		080BB76426E0E37C00D518EB /* ViewModelWithWrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080BB76326E0E37C00D518EB /* ViewModelWithWrappers.swift */; };
 		08461ACB26E594C10073F568 /* RickAndMortyAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 08461ACA26E594C10073F568 /* RickAndMortyAPI */; };
-		08461ACD26E597070073F568 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08461ACC26E597070073F568 /* APIResponse.swift */; };
+		08461ACD26E597070073F568 /* RootResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08461ACC26E597070073F568 /* RootResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +30,7 @@
 		080BB75926DF967500D518EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		080BB76126E0E36500D518EB /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		080BB76326E0E37C00D518EB /* ViewModelWithWrappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelWithWrappers.swift; sourceTree = "<group>"; };
-		08461ACC26E597070073F568 /* APIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
+		08461ACC26E597070073F568 /* RootResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +67,7 @@
 				080BB74B26DF967400D518EB /* AppDelegate.swift */,
 				080BB74D26DF967400D518EB /* SceneDelegate.swift */,
 				080BB74F26DF967400D518EB /* ViewController.swift */,
-				08461ACC26E597070073F568 /* APIResponse.swift */,
+				08461ACC26E597070073F568 /* RootResponse.swift */,
 				080BB76126E0E36500D518EB /* ViewModel.swift */,
 				080BB76326E0E37C00D518EB /* ViewModelWithWrappers.swift */,
 				080BB75126DF967400D518EB /* Main.storyboard */,
@@ -160,7 +160,7 @@
 				080BB75026DF967400D518EB /* ViewController.swift in Sources */,
 				080BB74C26DF967400D518EB /* AppDelegate.swift in Sources */,
 				080BB74E26DF967400D518EB /* SceneDelegate.swift in Sources */,
-				08461ACD26E597070073F568 /* APIResponse.swift in Sources */,
+				08461ACD26E597070073F568 /* RootResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
