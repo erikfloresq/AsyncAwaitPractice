@@ -14,8 +14,27 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        getAllData()
         getAllDataInParallel()
+    }
+
+    func getAllDataInParallel() {
+        Task {
+            do {
+                try await viewModel.getDataInParallel()
+            } catch {
+                print("Error \(error.localizedDescription)")
+            }
+        }
+    }
+
+    func getSequentialData() {
+        Task {
+            do {
+                try await viewModel.getSequentialData()
+            } catch {
+                print("Error \(error.localizedDescription)")
+            }
+        }
     }
 
     func getMoreData() {
@@ -23,26 +42,6 @@ class ViewController: UIViewController {
             do {
                 let apiResponse = try await viewModelWithWrapper.getDataWithNewWay()
                 self.textView.text = apiResponse?.locations
-            } catch {
-                print("Error \(error.localizedDescription)")
-            }
-        }
-    }
-
-    func getAllDataInParallel() {
-        Task {
-            do {
-                try await viewModel.getDataInParalallel()
-            } catch {
-                print("Error \(error.localizedDescription)")
-            }
-        }
-    }
-
-    func getAllData() {
-        Task {
-            do {
-                try await viewModel.getSecuenceData()
             } catch {
                 print("Error \(error.localizedDescription)")
             }

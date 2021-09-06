@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct APIResponse: Decodable {
+struct RootResponse: Decodable {
     let characters: String
     let locations: String
     let episodes: String

@@ -31,11 +31,11 @@ class ViewModelWithWrappers {
         })
     }
 
-    func getDataWithNewWay() async throws -> APIResponse? {
+    func getDataWithNewWay() async throws -> RootResponse? {
         guard let data = try await getDataNewWay() else {
             return nil
         }
-        let apiResponse = try JSONDecoder().decode(APIResponse.self, from: data)
+        let apiResponse = try JSONDecoder().decode(RootResponse.self, from: data)
         return apiResponse
     }
 }
