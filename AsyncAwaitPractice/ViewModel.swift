@@ -22,7 +22,7 @@ struct ViewModel {
         return rootResponse
     }
 
-    func getSequentialData() async throws {
+    func getSequentialData() async throws -> Int {
         let rootResponse: RootResponse = try await getAPIData(from: "https://rickandmortyapi.com/api")
         let locations: ResponseAPI<Location> = try await getAPIData(from: rootResponse.locations)
         let episodes: ResponseAPI<Episode> = try await getAPIData(from: rootResponse.episodes)
@@ -31,9 +31,11 @@ struct ViewModel {
         print("Locations \(locations.results)")
         print("episodes \(episodes.results)")
         print("characters \(characters.results)")
+        
+        return locations.results.count + episodes.results.count + characters.results.count
     }
 
-    func getDataInParallel() async throws {
+    func getDataInParallel() async throws -> Int {
         let rootResponse: RootResponse = try await getAPIData(from: "https://rickandmortyapi.com/api")
         async let locations: ResponseAPI<Location> = getAPIData(from: rootResponse.locations)
         async let episodes: ResponseAPI<Episode> = getAPIData(from: rootResponse.episodes)
@@ -43,6 +45,7 @@ struct ViewModel {
         for item in responses {
             print("item \(item)")
         }
+        return responses.count
     }
 
     /// this is for request that has the same result
